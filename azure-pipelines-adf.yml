@@ -1,0 +1,82 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pr:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  # Set these in an Azure DevOps variable group; mark passwords/keys/connection strings secret.
+  - name: resourceGroupName
+    value: 'Asritha_reddy1'
+  - name: location
+    value: 'Central India'
+  - name: dataFactoryName
+    value: 'datafactorylearning2'
+  # Replace with your Azure subscription ID or define it in a variable group.
+  - name: subscriptionId
+    value: '$(AZURE_SUBSCRIPTION_ID)'
+
+stages:
+- stage: Validate
+  displayName: Validate ADF deployment artifacts
+  jobs:
+  - job: ValidateARM
+    steps:
+    - checkout: self
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: '3.x'
+      displayName: Use Python 3
+    - script: python adf/validate_arm.py
+      displayName: Validate exported ARM template
+
+- stage: Deploy
+  displayName: Deploy ADF resources
+  dependsOn: Validate
+  condition: succeeded()
+  jobs:
+  - deployment: DeployADF
+    displayName: Deploy Azure Data Factory ARM template
+    environment: 'adf-$(dataFactoryName)'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self
+          - task: AzureResourceManagerTemplateDeployment@3
+            displayName: Deploy ADF resources to existing resource group
+            inputs:
+              deploymentScope: 'Resource Group'
+              azureResourceManagerConnection: '$(AZURE_SERVICE_CONNECTION)'
+              subscriptionId: '$(subscriptionId)'
+              action: 'Create Or Update Resource Group'
+              resourceGroupName: '$(resourceGroupName)'
+              location: '$(location)'
+              templateLocation: 'Linked artifact'
+              csmFile: '$(System.DefaultWorkingDirectory)/adf/deploy/ARMTemplateForFactory.json'
+              csmParametersFile: '$(System.DefaultWorkingDirectory)/adf/deploy/ARMTemplateParametersForFactory.json'
+              overrideParameters: >-
+                -factoryName "$(dataFactoryName)"
+                -AzureBlobStorage1_connectionString "$(AZUREBLOBSTORAGE1_CONNECTIONSTRING)"
+                -AzureBlobStorage2_connectionString "$(AZUREBLOBSTORAGE2_CONNECTIONSTRING)"
+                -AzureSqlDatabase1_password "$(AZURESQLDATABASE1_PASSWORD)"
+                -AzureBlobStorage3_connectionString "$(AZUREBLOBSTORAGE3_CONNECTIONSTRING)"
+                -AzureBlobStorage4_connectionString "$(AZUREBLOBSTORAGE4_CONNECTIONSTRING)"
+                -LS_ADLS_Gen2_accountKey "$(LS_ADLS_GEN2_ACCOUNT_KEY)"
+                -LS_AzureSQL_Metadata_password "$(LS_AZURESQL_METADATA_PASSWORD)"
+                -AzureSqlDatabase1_properties_typeProperties_server "$(AZURE_SQL_SERVER)"
+                -AzureSqlDatabase1_properties_typeProperties_database "$(AZURE_SQL_DATABASE)"
+                -AzureSqlDatabase1_properties_typeProperties_userName "$(AZURE_SQL_USERNAME)"
+                -LS_REST_DummyJSON_properties_typeProperties_url "https://dummyjson.com/"
+                -LS_ADLS_Gen2_properties_typeProperties_url "https://$(STORAGE_ACCOUNT_NAME).dfs.core.windows.net/"
+                -LS_AzureSQL_Metadata_properties_typeProperties_server "$(AZURE_SQL_SERVER)"
+                -LS_AzureSQL_Metadata_properties_typeProperties_database "$(AZURE_SQL_DATABASE)"
+                -LS_AzureSQL_Metadata_properties_typeProperties_userName "$(AZURE_SQL_USERNAME)"
+              deploymentMode: 'Incremental'

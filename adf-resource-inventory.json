@@ -1,0 +1,150 @@
+[
+  {
+    "type": "linkedServices",
+    "name": "AzureBlobStorage1')]"
+  },
+  {
+    "type": "linkedServices",
+    "name": "AzureBlobStorage2')]"
+  },
+  {
+    "type": "linkedServices",
+    "name": "AzureSqlDatabase1')]"
+  },
+  {
+    "type": "linkedServices",
+    "name": "AzureBlobStorage3')]"
+  },
+  {
+    "type": "linkedServices",
+    "name": "AzureBlobStorage4')]"
+  },
+  {
+    "type": "linkedServices",
+    "name": "LS_REST_DummyJSON')]"
+  },
+  {
+    "type": "linkedServices",
+    "name": "LS_ADLS_Gen2')]"
+  },
+  {
+    "type": "linkedServices",
+    "name": "LS_AzureSQL_Metadata')]"
+  },
+  {
+    "type": "datasets",
+    "name": "DelimitedText2')]"
+  },
+  {
+    "type": "datasets",
+    "name": "DelimitedText1')]"
+  },
+  {
+    "type": "datasets",
+    "name": "Binary1')]"
+  },
+  {
+    "type": "datasets",
+    "name": "AzureSqlTable1')]"
+  },
+  {
+    "type": "datasets",
+    "name": "Json1')]"
+  },
+  {
+    "type": "datasets",
+    "name": "AzureSqlTable2')]"
+  },
+  {
+    "type": "datasets",
+    "name": "DelimitedText4')]"
+  },
+  {
+    "type": "datasets",
+    "name": "DelimitedText3')]"
+  },
+  {
+    "type": "datasets",
+    "name": "DelimitedText5')]"
+  },
+  {
+    "type": "datasets",
+    "name": "DS_REST_Customers')]"
+  },
+  {
+    "type": "datasets",
+    "name": "Json2')]"
+  },
+  {
+    "type": "datasets",
+    "name": "DS_ADLS_Products_Landing')]"
+  },
+  {
+    "type": "datasets",
+    "name": "DS_REST_Products')]"
+  },
+  {
+    "type": "datasets",
+    "name": "DS_ADLS_Orders_Landing')]"
+  },
+  {
+    "type": "datasets",
+    "name": "DS_REST_Orders')]"
+  },
+  {
+    "type": "datasets",
+    "name": "Ecommerce')]"
+  },
+  {
+    "type": "datasets",
+    "name": "DS_REST_Generic')]"
+  },
+  {
+    "type": "pipelines",
+    "name": "pipeline1')]"
+  },
+  {
+    "type": "pipelines",
+    "name": "pipeline2')]"
+  },
+  {
+    "type": "pipelines",
+    "name": "pipeline4')]"
+  },
+  {
+    "type": "pipelines",
+    "name": "pipeline6')]"
+  },
+  {
+    "type": "pipelines",
+    "name": "pipeline7')]"
+  },
+  {
+    "type": "pipelines",
+    "name": "pipeline8')]"
+  },
+  {
+    "type": "pipelines",
+    "name": "PL_API_Customers_To_ADLS')]"
+  },
+  {
+    "type": "pipelines",
+    "name": "PL_API_Products_To_ADLS')]"
+  },
+  {
+    "type": "pipelines",
+    "name": "PL_API_Orders_To_ADLS')]"
+  },
+  {
+    "type": "pipelines",
+    "name": "PL_Metadata_Driven_Ingestion')]"
+  },
+  {
+    "type": "dataflows",
+    "name": "dataflow1')]"
+  },
+  {
+    "type": "datasets",
+    "name": "DS_WatermarkControl')]"
+  }
+]

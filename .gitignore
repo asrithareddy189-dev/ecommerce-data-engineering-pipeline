@@ -1,0 +1,7 @@
+# Local/secret deployment parameters
+*.local.json
+.env
+.env.*
+!.env.example
+**/secrets/
+*.publishsettings

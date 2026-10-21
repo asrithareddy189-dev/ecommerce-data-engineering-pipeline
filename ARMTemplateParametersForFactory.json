@@ -1,0 +1,54 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "factoryName": {
+      "value": "__SET_DATA_FACTORY_NAME__"
+    },
+    "AzureBlobStorage1_connectionString": {
+      "value": ""
+    },
+    "AzureBlobStorage2_connectionString": {
+      "value": ""
+    },
+    "AzureSqlDatabase1_password": {
+      "value": ""
+    },
+    "AzureBlobStorage3_connectionString": {
+      "value": ""
+    },
+    "AzureBlobStorage4_connectionString": {
+      "value": ""
+    },
+    "LS_ADLS_Gen2_accountKey": {
+      "value": ""
+    },
+    "LS_AzureSQL_Metadata_password": {
+      "value": ""
+    },
+    "AzureSqlDatabase1_properties_typeProperties_server": {
+      "value": "__SET_IN_AZURE_DEVOPS__"
+    },
+    "AzureSqlDatabase1_properties_typeProperties_database": {
+      "value": "__SET_IN_AZURE_DEVOPS__"
+    },
+    "AzureSqlDatabase1_properties_typeProperties_userName": {
+      "value": "__SET_IN_AZURE_DEVOPS__"
+    },
+    "LS_REST_DummyJSON_properties_typeProperties_url": {
+      "value": "__SET_IN_AZURE_DEVOPS__"
+    },
+    "LS_ADLS_Gen2_properties_typeProperties_url": {
+      "value": "__SET_IN_AZURE_DEVOPS__"
+    },
+    "LS_AzureSQL_Metadata_properties_typeProperties_server": {
+      "value": "__SET_IN_AZURE_DEVOPS__"
+    },
+    "LS_AzureSQL_Metadata_properties_typeProperties_database": {
+      "value": "__SET_IN_AZURE_DEVOPS__"
+    },
+    "LS_AzureSQL_Metadata_properties_typeProperties_userName": {
+      "value": "__SET_IN_AZURE_DEVOPS__"
+    }
+  }
+}
