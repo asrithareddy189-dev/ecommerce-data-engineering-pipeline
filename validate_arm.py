@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Local structural checks for the exported Azure Data Factory ARM template."""
 import json, pathlib, sys
-base = pathlib.Path(__file__).resolve().parents[1]
-template_path = base / "adf" / "deploy" / "ARMTemplateForFactory.json"
-params_path = base / "adf" / "deploy" / "ARMTemplateParametersForFactory.json"
+base = pathlib.Path(__file__).resolve().parent
+template_path = base / "ARMTemplateForFactory.json"
+params_path = base / "ARMTemplateParametersForFactory.json"
 errors=[]
 try:
     template=json.loads(template_path.read_text(encoding="utf-8"))
