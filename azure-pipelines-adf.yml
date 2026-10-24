@@ -34,7 +34,7 @@ stages:
       inputs:
         versionSpec: '3.x'
       displayName: Use Python 3
-    - script: python adf/validate_arm.py
+    - script: python validate_arm.py
       displayName: Validate exported ARM template
 
 - stage: Deploy
