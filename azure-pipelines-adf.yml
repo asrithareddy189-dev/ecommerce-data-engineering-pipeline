@@ -54,7 +54,7 @@ stages:
             displayName: Deploy ADF resources to existing resource group
             inputs:
               deploymentScope: 'Resource Group'
-              azureResourceManagerConnection: '$(AZURE_SERVICE_CONNECTION)'
+              azureResourceManagerConnection: AzureServiceConnection
               subscriptionId: '$(subscriptionId)'
               action: 'Create Or Update Resource Group'
               resourceGroupName: '$(resourceGroupName)'
