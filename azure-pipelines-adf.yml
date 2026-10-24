@@ -36,6 +36,7 @@ stages:
       displayName: Use Python 3
     - script: python validate_arm.py
       displayName: Validate exported ARM template
+      workingDirectory: $(Build.SourcesDirectory)
 
 - stage: Deploy
   displayName: Deploy ADF resources
