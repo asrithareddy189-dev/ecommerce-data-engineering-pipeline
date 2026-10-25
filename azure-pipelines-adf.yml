@@ -61,8 +61,8 @@ stages:
               resourceGroupName: '$(resourceGroupName)'
               location: '$(location)'
               templateLocation: 'Linked artifact'
-              csmFile: '$(System.DefaultWorkingDirectory)/adf/deploy/ARMTemplateForFactory.json'
-              csmParametersFile: '$(System.DefaultWorkingDirectory)/adf/deploy/ARMTemplateParametersForFactory.json'
+              csmFile: '$(System.DefaultWorkingDirectory)/ARMTemplateForFactory.json'
+              csmParametersFile: '$(System.DefaultWorkingDirectory)/ARMTemplateParametersForFactory.json'
               overrideParameters: >-
                 -factoryName "$(dataFactoryName)"
                 -AzureBlobStorage1_connectionString "$(AZUREBLOBSTORAGE1_CONNECTIONSTRING)"
