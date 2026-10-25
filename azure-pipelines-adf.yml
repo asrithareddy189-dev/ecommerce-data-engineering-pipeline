@@ -14,14 +14,14 @@ pool:
 variables:
   # Set these in an Azure DevOps variable group; mark passwords/keys/connection strings secret.
   - name: resourceGroupName
-    value: 'Asritha_reddy1'
+    value: 'rg-ecommerce-data'
   - name: location
     value: 'Central India'
   - name: dataFactoryName
     value: 'datafactorylearning2'
   # Replace with your Azure subscription ID or define it in a variable group.
   - name: subscriptionId
-    value: '$(AZURE_SUBSCRIPTION_ID)'
+    value: bb94bd51-d8d0-4959-aa07-37f83c2c8bfd
 
 stages:
 - stage: Validate
