@@ -14,7 +14,7 @@ pool:
 variables:
   # Set these in an Azure DevOps variable group; mark passwords/keys/connection strings secret.
   - name: resourceGroupName
-    value: 'rg-ecommerce-data'
+    value: 'Asritha_reddy1'
   - name: location
     value: 'Central India'
   - name: dataFactoryName
